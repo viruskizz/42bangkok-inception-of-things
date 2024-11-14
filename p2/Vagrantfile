@@ -1,0 +1,19 @@
+# set 192.168.56.110 app1.com app2.com app3.com in /etc/hosts
+Vagrant.configure("2") do |config|
+	config.vm.box = "centos/8"
+	config.vm.box_version = "2011.0"
+	config.vm.define "sharnvonS" do |machine|
+		machine.vm.hostname = "sharnvonS"
+		machine.vm.network "private_network", ip: "192.168.56.110"
+		machine.vm.provider "virtualbox" do |vb|
+			vb.name = "sharnvonS"
+			vb.memory = 1024
+			vb.cpus = 1
+		end
+		machine.vm.provision "file", source: "./confs/html", destination: "$HOME/html"
+		machine.vm.provision "file", source: "./confs/deployments.yaml", destination: "$HOME/deployments.yaml"
+		machine.vm.provision "file", source: "./confs/services.yaml", destination: "$HOME/services.yaml"
+		machine.vm.provision "file", source: "./confs/ingress.yaml", destination: "$HOME/ingress.yaml"
+		machine.vm.provision "shell", path: "./scripts/machine_script.sh"
+	end
+end

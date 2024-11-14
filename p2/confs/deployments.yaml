@@ -1,0 +1,77 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app1-deployment
+spec:
+  selector:
+    matchLabels:
+      app: app1
+  replicas: 1
+  template:
+      metadata:
+        labels:
+          app: app1
+      spec:
+        containers:
+        - name: app1
+          image: nginx
+          volumeMounts:
+            - mountPath: /usr/share/nginx/html
+              name: app1-volume
+        volumes:
+          - name: app1-volume
+            hostPath:
+              path: /home/vagrant/html/app1
+              type: Directory
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app2-deployment
+spec:
+  selector:
+    matchLabels:
+      app: app2
+  replicas: 3
+  template:
+      metadata:
+        labels:
+          app: app2
+      spec:
+        containers:
+        - name: app2
+          image: nginx
+          volumeMounts:
+            - mountPath: /usr/share/nginx/html
+              name: app2-volume
+        volumes:
+          - name: app2-volume
+            hostPath:
+              path: /home/vagrant/html/app2
+              type: Directory
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app3-deployment
+spec:
+  selector:
+    matchLabels:
+      app: app3
+  replicas: 1
+  template:
+      metadata:
+        labels:
+          app: app3
+      spec:
+        containers:
+        - name: app3
+          image: nginx
+          volumeMounts:
+            - mountPath: /usr/share/nginx/html
+              name: app3-volume
+        volumes:
+          - name: app3-volume
+            hostPath:
+              path: /home/vagrant/html/app3
+              type: Directory
