@@ -7,7 +7,7 @@ spec:
   destination:
     namespace: hello
     server: https://kubernetes.default.svc 
-  project: hello 
+  project: default 
   source: 
     path: p3/conf/hello
     repoURL: https://github.com/viruskizz/42bangkok-inception-of-things
