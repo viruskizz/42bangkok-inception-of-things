@@ -1,20 +1,15 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: hello-app
-  namespace: argocd
+  name: default
 spec:
   destination:
+    name: ''
     namespace: hello
-    server: https://kubernetes.default.svc 
-  project: default 
-  source: 
+    server: https://kubernetes.default.svc
+  source:
     path: p3/conf/hello
-    repoURL: https://github.com/viruskizz/42bangkok-inception-of-things
+    repoURL: https://github.com/viruskizz/42bangkok-inception-of-things.git
     targetRevision: main
-  syncPolicy: 
-    automated:
-      prune: true
-      selfHeal: false
-    syncOptions:
-    - CreateNamespace=true
+  sources: []
+  project: hello
