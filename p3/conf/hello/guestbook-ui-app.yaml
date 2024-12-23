@@ -1,8 +1,9 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: default
+  name: hello
 spec:
+  project: hello
   destination:
     name: ''
     namespace: hello
@@ -12,4 +13,6 @@ spec:
     repoURL: https://github.com/viruskizz/42bangkok-inception-of-things.git
     targetRevision: main
   sources: []
-  project: hello
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
