@@ -4,7 +4,7 @@ metadata:
   name: wil42
   namespace: argocd
 spec:
-  project: wil42
+  project: default
   destination:
     name: ''
     namespace: dev

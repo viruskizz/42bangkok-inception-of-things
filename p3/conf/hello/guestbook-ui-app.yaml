@@ -3,7 +3,7 @@ kind: Application
 metadata:
   name: hello
 spec:
-  project: hello
+  project: default
   destination:
     name: ''
     namespace: hello
