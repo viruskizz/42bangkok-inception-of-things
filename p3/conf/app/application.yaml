@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: wil42
+spec:
+  project: wil42
+  destination:
+    name: ''
+    namespace: dev
+    server: https://kubernetes.default.svc
+  source:
+    path: p3/conf/app
+    repoURL: https://github.com/viruskizz/42bangkok-inception-of-things.git
+    targetRevision: main
+  sources: []
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
