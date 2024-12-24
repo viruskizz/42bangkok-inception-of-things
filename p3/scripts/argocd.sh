@@ -1,5 +1,3 @@
-kubectl create namespace argocd
-kubectl get pods -n argocd
 kubectl port-forward -n argocd svc/argocd-server 8080:443
 
 # Get ArgoCD admin password
