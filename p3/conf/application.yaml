@@ -10,10 +10,13 @@ spec:
     namespace: dev
     server: https://kubernetes.default.svc
   source:
-    path: p3/conf/wil42
+    path: p3/conf
     repoURL: https://github.com/viruskizz/42bangkok-inception-of-things.git
     targetRevision: main
   sources: []
-  syncPolicy:
+  syncPolicy: 
+    automated:
+      prune: true
+      selfHeal: false
     syncOptions:
       - CreateNamespace=true

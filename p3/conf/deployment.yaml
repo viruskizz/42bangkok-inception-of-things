@@ -18,3 +18,10 @@ spec:
         name: wil-playground
         ports:
         - containerPort: 8888
+        resources:
+          requests:
+            memory: 128Mi
+            cpu: "0.2"
+          limits:
+            memory: 512Mi
+            cpu: "1"
