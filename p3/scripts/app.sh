@@ -7,3 +7,7 @@ ps aux | grep "kubectl port-forward"
 
 # Get applicationss
 kubectl get app -n argocd
+
+# To remove app
+kubectl patch app wil42  -p '{"metadata": {"finalizers": null}}' --type merge
+kubectl delete app wil42
