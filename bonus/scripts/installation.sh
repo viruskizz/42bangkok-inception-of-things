@@ -7,10 +7,10 @@ helm repo update
 
 kubectl create ns gitlab
 
-
-DOMAIN_NAME="http://gitlab.inceptionofthing.com"
+DOMAIN_NAME="gitlab.inceptionofthings.com"
 
 helm install gitlab gitlab/gitlab \
+  --namespace gitlab \
   --set certmanager.install=false \
   --set global.ingress.configureCertmanager=false \
   --set global.ingress.tls.enabled=true \
@@ -18,3 +18,13 @@ helm install gitlab gitlab/gitlab \
   --set registry.ingress.tls.secretName=RELEASE-registry-tls \
   --set minio.ingress.tls.secretName=RELEASE-minio-tls \
   --set gitlab.kas.ingress.tls.secretName=RELEASE-kas-tls
+
+helm upgrade --install gitlab gitlab/gitlab \
+  --namespace gitlab \
+  --timeout 600s \
+  --set global.hosts.domain="$DOMAIN_NAME" \
+  --set global.hosts.https=true \
+  --set certmanager.install=false \
+  --set global.ingress.configureCertmanager=false \
+  --set global.ingress.tls.secretName=gitlab-tls \
+  -f value.yaml
