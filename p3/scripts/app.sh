@@ -1,4 +1,4 @@
-kubectl apply -f ./conf/application.yaml
+kubectl apply -f ./confs/application.yaml
 
 kubectl port-forward -n dev service/wil-playground 8888:8888
 

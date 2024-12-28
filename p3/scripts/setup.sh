@@ -1,10 +1,6 @@
 #!/bin/bash
 CLUSTER_NAME=inceptionofthings
 
-curl -sfL https://get.k3s.io | sh -
-curl -s https://raw.githubusercontent.com/k3d-io/k3d/main/install.sh | bash
-
-sudo -s
 k3d cluster create "$CLUSTER_NAME"
 
 # List existing cluster

@@ -7,3 +7,5 @@ ARGOCD_PASS="$(kubectl -n argocd get secret argocd-initial-admin-secret -o jsonp
 
 echo "USERNAME=$ARGOCD_USER"
 echo "PASSWORD=$ARGOCD_PASS"
+
+8Lz7RlnA9g9Ms3n4
